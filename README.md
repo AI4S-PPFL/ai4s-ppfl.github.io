@@ -1,1 +1,3 @@
-# ai4s-ppfl.github.io
+# Privacy-Preserving Federated Learning for Science: Building Sustainable and Trustworthy Foundation Models
+
+This multi-institutional project, funded by the U.S. Department of Energy Office of Science, explores the use of Privacy-Preserving Federated Learning (PPFL) to advance scientific discovery by enabling large-scale, privacy-conscious collaborations across diverse science domains. As artificial intelligence models grow larger and data privacy becomes more crucial, this project aims to develop innovative methods that allow efficient, secure, and collaborative training of foundational models without the need for centralizing sensitive data.
