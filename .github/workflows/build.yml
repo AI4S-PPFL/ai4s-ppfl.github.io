@@ -3,58 +3,62 @@ name: Build and Deploy
 on:
   push:
     branches-ignore:
-    - master
+      - master
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GEM_HOME: $HOME/.gem
+      PATH: $HOME/.gem/ruby/2.7.8/bin:$PATH
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set GEM_HOME and update PATH for user-installed gems
-        run: |
-          echo "GEM_HOME=$HOME/.gem" >> $GITHUB_ENV
-          echo "$HOME/.gem/ruby/$(ruby -e 'print RUBY_VERSION[/\d+\.\d+/]')/bin" >> $GITHUB_PATH
-      - name: Update Bundler to Latest Version
+
+      - name: Setup Ruby Environment
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.8'
+          bundler-cache: true
+
+      - name: Update Bundler
         run: |
           gem install bundler --no-document --user-install
           bundle update --bundler
-      - name: Remove 'uri' dependency from Gemfile
+
+      - name: Remove 'uri' dependency from Gemfile (if exists)
         run: |
           if [ -f Gemfile ]; then
             sed -i "/gem *['\"]uri['\"]/d" Gemfile || true
           fi
-      - name: Remove 'uri' dependency from Gemfile.lock
+
+      - name: Remove 'uri' dependency from Gemfile.lock (if exists)
         run: |
           if [ -f Gemfile.lock ]; then
             sed -i "/gem *['\"]uri['\"] (1\.0\.2)/d" Gemfile.lock || true
           fi
-      - name: Setup Ruby Environment
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7'  # Ensure compatibility with Jekyll and jekyll-scholar
-          bundler-cache: true
+
       - name: Install Dependencies
         run: bundle install
+
       - name: Build Jekyll Site
         run: bundle exec jekyll build
-    #   - name: Setup Pages
-    #     uses: actions/configure-pages@v5
-    #   - name: Build
-    #     uses: actions/jekyll-build-pages@v1
-      - name: Upload artifact
+
+      - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
     environment:
       name: github-pages
