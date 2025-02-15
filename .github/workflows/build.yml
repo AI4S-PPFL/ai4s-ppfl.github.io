@@ -14,9 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set GEM_HOME and update PATH for user-installed gems
+        run: |
+          echo "GEM_HOME=$HOME/.gem" >> $GITHUB_ENV
+          echo "$HOME/.gem/ruby/$(ruby -e 'print RUBY_VERSION[/\d+\.\d+/]')/bin" >> $GITHUB_PATH
       - name: Update Bundler to Latest Version
         run: |
-          gem install bundler --no-document
+          gem install bundler --no-document --user-install
           bundle update --bundler
       - name: Remove 'uri' dependency from Gemfile
         run: |
