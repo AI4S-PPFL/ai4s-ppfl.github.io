@@ -1,4 +1,4 @@
-name: Build
+name: Build and Deploy
 
 on:
   push:
@@ -14,12 +14,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Build
-        uses: actions/jekyll-build-pages@v1
+      - name: Setup Ruby Environment
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7'  # Ensure compatibility with Jekyll and jekyll-scholar
+          bundler-cache: true
+      - name: Install Dependencies
+        run: bundle install
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build
+    #   - name: Setup Pages
+    #     uses: actions/configure-pages@v5
+    #   - name: Build
+    #     uses: actions/jekyll-build-pages@v1
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
   deploy:
     runs-on: ubuntu-latest
     needs: build
