@@ -25,8 +25,8 @@ jobs:
           cache-version: 0 # Increment this number if you need to re-download cached gems
 
       - name: Update Bundler
-        run: gem install bundler
-        
+        run: gem install bundler -v 2.4.22
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
