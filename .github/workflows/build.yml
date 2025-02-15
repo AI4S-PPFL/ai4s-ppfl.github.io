@@ -16,8 +16,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Remove 'uri' dependency from Gemfile
         run: |
-          sed -i "/gem 'uri'/d" Gemfile || true
-          sed -i '/gem "uri"/d' Gemfile || true
+          sed -i "/gem *['\"]uri['\"]/d" Gemfile || true
+      - name: Remove 'uri' dependency from Gemfile.lock
+        run: |
+          sed -i "/uri (1\.0\.2)/d" Gemfile.lock || true
       - name: Setup Ruby Environment
         uses: ruby/setup-ruby@v1
         with:
