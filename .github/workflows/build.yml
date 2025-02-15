@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Update Bundler to Latest Version
+        run: |
+          gem install bundler --no-document
+          bundle update --bundler
       - name: Remove 'uri' dependency from Gemfile
         run: |
           sed -i "/gem *['\"]uri['\"]/d" Gemfile || true
