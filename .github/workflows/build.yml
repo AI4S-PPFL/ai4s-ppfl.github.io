@@ -29,12 +29,12 @@ jobs:
           gem uninstall bundler
           gem install bundler -v 2.4.22
 
+      - name: Install dependencies
+        run: bundle install
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-
-      - name: Install dependencies
-        run: bundle install
 
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
