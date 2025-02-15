@@ -16,7 +16,7 @@ jobs:
     container:
       # Use a Jekyll image that includes Ruby 2.7 and is compatible with Jekyll 4.3 and jekyll-scholar.
       # If "jekyll/jekyll:4.3" is unavailable, "jekyll/jekyll:latest" can be used.
-      image: jekyll/jekyll:4.3
+      image: jekyll/jekyll:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
