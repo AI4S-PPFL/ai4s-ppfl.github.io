@@ -24,11 +24,6 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
 
-      - name: Update Bundler
-        run: |
-          gem uninstall bundler
-          gem install bundler -v 2.4.22
-
       - name: Install dependencies
         run: bundle install
 
