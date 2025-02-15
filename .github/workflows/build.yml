@@ -13,24 +13,25 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      # Use a Jekyll image that includes Ruby 2.7 and is compatible with Jekyll 4.3 and jekyll-scholar.
-      # If "jekyll/jekyll:4.3" is unavailable, "jekyll/jekyll:latest" can be used.
-      image: jekyll/jekyll:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
-      - name: Install dependencies
-        run: bundle install
-
-      - name: Build Jekyll Site
-        run: bundle exec jekyll build
-
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        # Outputs to the './_site' directory by default
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./_site
 
   deploy:
     runs-on: ubuntu-latest
