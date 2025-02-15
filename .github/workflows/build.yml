@@ -16,9 +16,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Remove 'uri' dependency from Gemfile
         run: |
-          if grep -q "gem ['\"]uri['\"]" Gemfile; then
-            sed -i '/gem *[\"\']uri[\"\']/d' Gemfile
-          fi
+          sed -i "/gem 'uri'/d" Gemfile || true
+          sed -i '/gem "uri"/d' Gemfile || true
       - name: Setup Ruby Environment
         uses: ruby/setup-ruby@v1
         with:
