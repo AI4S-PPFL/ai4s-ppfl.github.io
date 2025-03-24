@@ -7,8 +7,6 @@ layout: default
   <div class="hero-overlay"></div> <!-- Optional animated overlay -->
   <div class="hero-content container">
     <h2 style="font-size: 2.5em;">Privacy-Preserving Federated Learning for Science</h2>
-    <!-- <p style="font-size: 1.5em;">Advancing AI and ML for transformative scientific discovery</p>
-    <p style="font-size: small;">(Image Credit: DALL.E)</p> -->
   </div>
 </section>
 
