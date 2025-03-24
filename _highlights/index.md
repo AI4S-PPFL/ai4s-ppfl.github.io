@@ -2,6 +2,16 @@
 layout: default
 ---
 
+<!-- Hero Header Section -->
+<section class="hero-header" id="home">
+  <div class="hero-overlay"></div> <!-- Optional animated overlay -->
+  <div class="hero-content container">
+    <h2 style="font-size: 2.5em;">Privacy-Preserving Federated Learning for Science</h2>
+    <!-- <p style="font-size: 1.5em;">Advancing AI and ML for transformative scientific discovery</p>
+    <p style="font-size: small;">(Image Credit: DALL.E)</p> -->
+  </div>
+</section>
+
 <div style="margin-top: 30px; margin-bottom: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
 
 <p style="color: #333; font-size: 1.1em; line-height: 1.6;">

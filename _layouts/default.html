@@ -92,6 +92,20 @@
             /* Ensure the animation stays within bounds */
         }
 
+        /* Hero Section with background image */
+        .hero-header {
+            position: relative;
+            background: url('{{ site.baseurl }}/assets/images/hero-background.jpg') no-repeat center center/cover;
+            height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            /* Ensure the animation stays within bounds */
+        }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -227,15 +241,15 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <h1><a href="{{ site.baseurl }}/" style="color: #fff;">AI4S-PPFL</a></h1>
+                <h1><a href="{{ site.baseurl }}/" style="text-decoration: none; color: #fff;">AI4S-PPFL</a></h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li><a href="{{ site.baseurl }}/#objectives">Objectives</a></li>
-                    <li><a href="{{ site.baseurl }}/#team">Team</a></li>
-                    <li><a href="{{ site.baseurl }}/highlights/">Highlights</a></li>
-                    <li><a href="{{ site.baseurl }}/publications/">Publications</a></li>
+                    <li><a href="{{ site.baseurl }}/" sylte="text-decoration: none;">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/#objectives" sylte="text-decoration: none;">Objectives</a></li>
+                    <li><a href="{{ site.baseurl }}/#team" sylte="text-decoration: none;">Team</a></li>
+                    <li><a href="{{ site.baseurl }}/highlights/" sylte="text-decoration: none;">Highlights</a></li>
+                    <li><a href="{{ site.baseurl }}/publications/" sylte="text-decoration: none;">Publications</a></li>
                 </ul>
             </nav>
         </div>
