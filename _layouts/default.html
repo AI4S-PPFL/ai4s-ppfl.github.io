@@ -214,6 +214,123 @@
             margin-bottom: 10px;
         }
 
+
+
+        .site-title-link {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .nav-link {
+            text-decoration: none;
+        }
+
+        nav ul li a.active {
+            color: #ffcc00;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        nav ul li a:focus-visible {
+            outline: 2px solid #ffcc00;
+            outline-offset: 2px;
+            border-radius: 3px;
+        }
+
+        .hero-title {
+            font-size: 2.5em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+        }
+
+        .hero-credit {
+            font-size: small;
+        }
+
+        .section-surface {
+            background-color: #ffffff;
+            padding: 40px 0;
+        }
+
+        .section-heading-wrap {
+            text-align: center;
+        }
+
+        .section-heading {
+            color: #003366;
+            border-bottom: 3px solid #003366;
+            padding-bottom: 10px;
+        }
+
+        .content-narrow {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content-block {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .body-text {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .body-list {
+            color: #333;
+            font-size: 1.05em;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .body-text-spaced {
+            margin-top: 15px;
+        }
+
+        .team-subsection-title {
+            color: #003366;
+        }
+
+        .text-link-emphasis {
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .team-section-top {
+            margin-top: 30px;
+        }
+
+        .team-grid-top {
+            margin-top: 15px;
+        }
+
+        .institutions-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .logo-item {
+            margin: 20px;
+        }
+
+        .logo-image {
+            max-width: 150px;
+        }
+
         /* Footer */
         footer {
             background: #003366;
@@ -237,11 +354,24 @@
 </head>
 
 <body>
+    {% assign is_home = false %}
+    {% if page.url == "/" or page.url == "/index.html" %}
+        {% assign is_home = true %}
+    {% endif %}
+    {% assign is_highlights = false %}
+    {% if page.url contains "/highlights" %}
+        {% assign is_highlights = true %}
+    {% endif %}
+    {% assign is_publications = false %}
+    {% if page.url contains "/publications" %}
+        {% assign is_publications = true %}
+    {% endif %}
+
     <!-- Fixed Header with Flex Container -->
     <header>
         <div class="header-container">
             <div class="logo">
-                <h1><a href="{{ site.baseurl }}/" style="text-decoration: none; color: #fff;">AI4S-PPFL</a></h1>
+                <h1><a href="{{ site.baseurl }}/" class="site-title-link">AI4S-PPFL</a></h1>
             </div>
             <nav>
                 <ul>
