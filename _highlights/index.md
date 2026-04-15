@@ -16,10 +16,10 @@ layout: default
   The following slides contain highlights of recent scientific achievements:
 </p>
 
-<ul class="body-list">
-    <li><a href="CCGrid-2025-submitted.pdf" target="_blank" rel="noopener noreferrer">Extending APPFL: Supporting Vertical, Hierarchical, and Decentralized FL for Science</a></li>
-    <li><a href="GridFM-submitted.pdf" target="_blank" rel="noopener noreferrer">GridFM: Enabling Secure, Collaborative AI for Grid</a></li>
-    <li><a href="FedSpaLLM-submitted.pdf" target="_blank" rel="noopener noreferrer">FedSpaLLM: Federated Pruning of Large Language Models</a></li>
+<ul style="color: #333; font-size: 1.05em; margin-top: 15px; line-height: 1.6;">
+    <li><a href="CCGrid-2025-submitted.pdf" target="_blank">Extending APPFL: Supporting Vertical, Hierarchical, and Decentralized FL for Science</a></li>
+    <li><a href="GridFM-submitted.pdf" target="_blank">GridFM: Enabling Secure, Collaborative AI for Grid</a></li>
+    <li><a href="FedSpaLLM-submitted.pdf" target="_blank">FedSpaLLM: Federated Pruning of Large Language Models</a></li>
 </ul>
 
 </div>
