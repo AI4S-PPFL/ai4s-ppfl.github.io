@@ -1,0 +1,63 @@
+# Highlight slides. Listed in any order — the page sorts by `file` alphabetically
+# (with YYYYMMDD filename prefix this is chronological).
+# `file` is the PDF filename inside `_highlights/`.
+
+- date: 2025-03-24
+  file: "20250324 - CCGrid.pdf"
+  title: "Extending APPFL: Supporting Vertical, Hierarchical, and Decentralized FL for Science"
+
+- date: 2025-03-24
+  file: "20250324 - FedSpaLLM.pdf"
+  title: "FedSpaLLM: Federated Pruning of Large Language Models"
+
+- date: 2025-03-24
+  file: "20250324 - GridFM.pdf"
+  title: "GridFM: Enabling Secure, Collaborative AI for Grid"
+
+- date: 2026-03-12
+  file: "20260312 - FIRM.pdf"
+  title: "FIRM: Federated Image Reconstruction Using Multimodal Tomographic Data"
+
+- date: 2026-03-17
+  file: "20260317 - CVPR.pdf"
+  title: "Selective Amnesia using Contrastive Subnet Erasure for Class Level Unlearning in Vision Models"
+
+- date: 2026-03-17
+  file: "20260317 - IPDPSW.pdf"
+  title: "Energy–Performance Trade-offs in Privacy-Preserving Federated Learning on SmartNIC-Enabled HPC Systems"
+
+- date: 2026-03-17
+  file: "20260317 - JSE.pdf"
+  title: "Differentially Private Federated Averaging with James-Stein Estimator"
+
+- date: 2026-04-20
+  file: "20260420 - Auto MIA.pdf"
+  title: "Automated Membership Inference Attacks (MIA): Discovering MIA Signal Computations using Large Language Model (LLM) Agents"
+
+- date: 2026-04-20
+  file: "20260420 - DP2level.pdf"
+  title: "DP-TwoLevel: Two-Stage Gradient Subspace Learning for Differentially Private Federated Learning"
+
+- date: 2026-04-20
+  file: "20260420 - ScalableFL.pdf"
+  title: "Scalable Federated Learning for Scientific Foundation Models on Leadership-Class Systems"
+
+- date: 2026-04-20
+  file: "20260420 - SelfGrader.pdf"
+  title: "SelfGrader: Stable Jailbreak Detection for Large Language Models using Token-Level Logits"
+
+- date: 2026-04-20
+  file: "20260420 - XMark.pdf"
+  title: "XMark: Reliable Multi-Bit Watermarking for LLM-Generated Texts"
+
+- date: 2026-05-22
+  file: "20260522 - FedQueue.pdf"
+  title: "FedQueue: Queue-Aware Federated Learning for Cross-Facility HPC Training"
+
+- date: 2026-05-22
+  file: "20260522 - IntraShuffler.pdf"
+  title: "IntraShuffler: A Privacy Preserving Framework for Heterogeneous Differential Privacy (HDP)-Federated Learning (FL)"
+
+- date: 2025-11-18
+  file: "20251118 - APPFL Deployment.pdf"
+  title: "First Cross-Facility Federated Learning Deployment on DOE Leadership-Class Supercomputers"

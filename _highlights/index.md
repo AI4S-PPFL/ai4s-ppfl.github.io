@@ -17,10 +17,11 @@ title: Highlights
   The following slides contain highlights of recent scientific achievements:
 </p>
 
+{% assign highlights_sorted = site.data.highlights | sort: "file" | reverse %}
 <ul class="body-list">
-    <li><a href="CCGrid-2025-submitted.pdf" target="_blank">Extending APPFL: Supporting Vertical, Hierarchical, and Decentralized FL for Science</a></li>
-    <li><a href="GridFM-submitted.pdf" target="_blank">GridFM: Enabling Secure, Collaborative AI for Grid</a></li>
-    <li><a href="FedSpaLLM-submitted.pdf" target="_blank">FedSpaLLM: Federated Pruning of Large Language Models</a></li>
+{% for h in highlights_sorted -%}
+    <li><strong>{{ h.date | date: "%b %-d, %Y" }}</strong> — <a href="{{ site.baseurl }}/highlights/{{ h.file | uri_escape }}" target="_blank">{{ h.title }}</a></li>
+{% endfor -%}
 </ul>
 
 </div>
