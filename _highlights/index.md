@@ -18,9 +18,10 @@ title: Highlights
 </p>
 
 <ul class="body-list">
-    <li><a href="CCGrid-2025-submitted.pdf" target="_blank">Extending APPFL: Supporting Vertical, Hierarchical, and Decentralized FL for Science</a></li>
-    <li><a href="GridFM-submitted.pdf" target="_blank">GridFM: Enabling Secure, Collaborative AI for Grid</a></li>
-    <li><a href="FedSpaLLM-submitted.pdf" target="_blank">FedSpaLLM: Federated Pruning of Large Language Models</a></li>
+    <li><strong>Nov 18, 2025</strong> — <a href="{{ site.baseurl }}/highlights/11182025%20-%20APPFL%20Deployment.pdf" target="_blank">First Cross-Facility Federated Learning Deployment on DOE Leadership-Class Supercomputers</a></li>
+    <li><strong>Mar 24, 2025</strong> — <a href="{{ site.baseurl }}/highlights/03242025%20-%20CCGrid.pdf" target="_blank">Extending APPFL: Supporting Vertical, Hierarchical, and Decentralized FL for Science</a></li>
+    <li><strong>Mar 24, 2025</strong> — <a href="{{ site.baseurl }}/highlights/03242025%20-%20GridFM.pdf" target="_blank">GridFM: Enabling Secure, Collaborative AI for Grid</a></li>
+    <li><strong>Mar 24, 2025</strong> — <a href="{{ site.baseurl }}/highlights/03242025%20-%20FedSpaLLM.pdf" target="_blank">FedSpaLLM: Federated Pruning of Large Language Models</a></li>
 </ul>
 
 </div>
