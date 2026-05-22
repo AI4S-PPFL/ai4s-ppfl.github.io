@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title | default: site.title }}</title>
+    <title>{{ page.title }}{% if page.title %} &middot; {% endif %}{{ site.title }}</title>
     <style>
         /* Reset and basic styles */
         * {
@@ -79,31 +79,24 @@
         }
 
         /* Hero Section with background image */
-        .hero {
-            position: relative;
-            background: url('{{ site.baseurl }}/assets/images/hero-background.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-            /* Ensure the animation stays within bounds */
-        }
-
-        /* Hero Section with background image */
+        .hero,
         .hero-header {
             position: relative;
             background: url('{{ site.baseurl }}/assets/images/hero-background.jpg') no-repeat center center/cover;
-            height: 15vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
             overflow: hidden;
-            /* Ensure the animation stays within bounds */
+        }
+
+        .hero {
+            height: 60vh;
+        }
+
+        .hero-header {
+            height: 15vh;
         }
 
         .hero-overlay {
@@ -113,10 +106,8 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 51, 102, 0.3);
-            /* Semi-transparent blue overlay */
             z-index: 1;
             pointer-events: none;
-            /* Ensures interactivity is not blocked */
         }
 
         .hero-content {
@@ -124,52 +115,6 @@
             z-index: 2;
             max-width: 1000px;
             margin: 0 auto;
-        }
-
-        /* Animated Network Grid */
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.1);
-            }
-        }
-
-        /* Server Node (Federated Learning Central Server) */
-        .server-node {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: rgba(255, 215, 0, 0.9);
-            /* Gold color for distinction */
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-            transform: translate(-50%, -50%);
-        }
-
-        /* Client Nodes (Federated Learning Participants) */
-        .client-node {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            animation: pulse 2s infinite ease-in-out;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Lines Representing Secure Connections */
-        .line {
-            position: absolute;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.7);
-            transform-origin: 0 50%;
         }
 
         /* Project Objectives Section */
@@ -331,6 +276,106 @@
             max-width: 150px;
         }
 
+        /* Bibliography */
+        .publications {
+            counter-reset: pub-counter {{ site.publication_count | default: 0 | plus: 1 }};
+        }
+
+        h2.bibliography {
+            color: #003366;
+            font-size: 1.4em;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        h2.bibliography:first-of-type {
+            margin-top: 8px;
+        }
+
+        ol.bibliography {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ol.bibliography > li {
+            counter-increment: pub-counter -1;
+            position: relative;
+            padding: 14px 0 14px 3em;
+            border-bottom: 1px solid #eaeaea;
+            color: #333;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        ol.bibliography > li::before {
+            content: "[" counter(pub-counter) "]";
+            position: absolute;
+            left: 0;
+            top: 14px;
+            color: #003366;
+            font-weight: 600;
+        }
+
+        ol.bibliography > li:last-child {
+            border-bottom: none;
+        }
+
+        .bib-reference {
+            color: #333;
+        }
+
+        .bib-actions {
+            margin-top: 6px;
+            font-size: 0.9em;
+        }
+
+        .bib-action {
+            display: inline-block;
+            margin-right: 14px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bib-action:hover {
+            text-decoration: underline;
+        }
+
+        .bib-bibtex {
+            margin-top: 6px;
+            font-size: 0.9em;
+        }
+
+        .bib-bibtex > summary {
+            color: #003366;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        .bib-bibtex > summary:hover {
+            text-decoration: underline;
+        }
+
+        .bib-bibtex[open] > summary {
+            margin-bottom: 6px;
+        }
+
+        .bib-bibtex pre {
+            background: #f4f4f6;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            color: #333;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
         /* Footer */
         footer {
             background: #003366;
@@ -375,11 +420,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="{{ site.baseurl }}/" style="text-decoration: none;">Home</a></li>
-                    <li><a href="{{ site.baseurl }}/#objectives" style="text-decoration: none;">Objectives</a></li>
-                    <li><a href="{{ site.baseurl }}/#team" style="text-decoration: none;">Team</a></li>
-                    <li><a href="{{ site.baseurl }}/highlights/" style="text-decoration: none;">Highlights</a></li>
-                    <li><a href="{{ site.baseurl }}/publications/" style="text-decoration: none;">Publications</a></li>
+                    <li><a href="{{ site.baseurl }}/" class="nav-link{% if is_home %} active{% endif %}">Home</a></li>
+                    <li><a href="{{ site.baseurl }}/#objectives" class="nav-link">Objectives</a></li>
+                    <li><a href="{{ site.baseurl }}/#team" class="nav-link">Team</a></li>
+                    <li><a href="{{ site.baseurl }}/highlights/" class="nav-link{% if is_highlights %} active{% endif %}">Highlights</a></li>
+                    <li><a href="{{ site.baseurl }}/publications/" class="nav-link{% if is_publications %} active{% endif %}">Publications</a></li>
                 </ul>
             </nav>
         </div>
