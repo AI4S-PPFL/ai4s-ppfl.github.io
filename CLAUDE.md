@@ -29,7 +29,7 @@ GitHub Pages via `.github/workflows/build.yml`. The workflow is intentional but 
 
 - `_layouts/default.html` is the only layout. **All CSS is embedded inline** in its `<style>` block — there is no separate stylesheet (the `assets/css/` directory exists but is empty). Edit styles there.
 - `index.html` (home) is hand-written HTML, including hard-coded team cards. To add/remove a team member, edit `index.html` directly and drop their photo into `assets/photos/`.
-- `_highlights/` is a Jekyll collection (`output: true` in `_config.yml`). PDFs live alongside `_highlights/index.md`, which links to them with relative paths — the collection output puts them under `/highlights/`.
+- `_highlights/` is a Jekyll collection (`output: true` in `_config.yml`). PDFs live in this directory; the page `_highlights/index.md` renders a list from `_data/highlights.yml` (data-driven, sorted by `file` descending). **To add a highlight, drop the PDF into `_highlights/` and append an entry to `_data/highlights.yml`** — do not hand-edit the list in `_highlights/index.md`.
 - `_publications/index.md` renders `_bibliography/references.bib` via `{% bibliography %}` (jekyll-scholar). **To add a publication, append a BibTeX entry to `references.bib`** — do not edit the publications page itself.
 - `_posts/` exists but is unused.
 
@@ -38,10 +38,16 @@ GitHub Pages via `.github/workflows/build.yml`. The workflow is intentional but 
 | Change | Where |
 |---|---|
 | Add publication | append BibTeX entry to `_bibliography/references.bib` |
-| Add highlight | drop PDF in `_highlights/`, add `<li>` link in `_highlights/index.md` |
+| Add highlight | drop PDF named `YYYYMMDD - ShortTitle.pdf` into `_highlights/`, append `{ date, file, title }` entry to `_data/highlights.yml` |
 | Add/edit team member | edit `index.html` team card markup + add photo to `assets/photos/` |
 | Update nav links | `_layouts/default.html` `<nav>` block |
 | Site title, URL, plugins | `_config.yml` (Jekyll does NOT auto-reload this — restart `jekyll serve` after edits) |
+
+## Working with team contributors
+
+`README.md` documents the contributor workflow for project team members (publications, highlights, team cards). When users ask you to "add a publication" or "add a highlight," follow the data-driven flows above — never insert raw `<li>` items into `_highlights/index.md` (the page reads from `_data/highlights.yml`). When adding a highlight, the YAML `file:` value must exactly match the PDF filename in `_highlights/`, including the `YYYYMMDD - ` prefix.
+
+Two project skills automate these flows: `.claude/skills/add-publication/` and `.claude/skills/add-highlight/`. Prefer invoking them when the user's request matches their descriptions, rather than reproducing the procedure inline.
 
 ## Notes
 
