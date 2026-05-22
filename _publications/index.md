@@ -6,14 +6,14 @@ permalink: /publications/
 
 <!-- Hero Header Section -->
 <section class="hero-header" id="home">
-  <div class="hero-overlay"></div> <!-- Optional animated overlay -->
+  <div class="hero-overlay"></div>
   <div class="hero-content container">
     <h2 class="hero-title">Privacy-Preserving Federated Learning for Science</h2>
   </div>
 </section>
 
-<div class="content-block">
+<div class="content-block publications">
 
-    {% bibliography style=ieee order="year,descending;author,ascending" %}
+    {% bibliography --style ieee --template bib --group_by year --group_order descending %}
 
 </div>

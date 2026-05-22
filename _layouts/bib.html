@@ -1,0 +1,18 @@
+{% assign ref = reference %}
+{% for n in (1..100) %}
+  {% capture marker %}>[{{ n }}]{% endcapture %}
+  {% if ref contains marker %}
+    {% assign ref = ref | replace_first: marker, ">" %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+<div class="bib-reference">{{ ref }}</div>
+{% if entry.doi %}
+<div class="bib-actions">
+  <a class="bib-action" href="https://doi.org/{{ entry.doi }}" target="_blank" rel="noopener noreferrer">DOI</a>
+</div>
+{% endif %}
+<details class="bib-bibtex">
+  <summary>BibTeX</summary>
+  <pre>{{ entry.bibtex }}</pre>
+</details>
